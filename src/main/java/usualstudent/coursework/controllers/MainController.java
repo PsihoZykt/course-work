@@ -26,11 +26,8 @@ public String test(Model model){
     public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model)throws ParseException {
 
             Users users = new Users("1", "asd", 1, "1111-11-11", "male");
-           if(!usersRepo.findAll().contains(users))
-             //  usersService.addUser(users);
-
-
-        model.addAttribute("name", name);
+    model.addAttribute("test","test");
+        model.addAttribute("users" , users);
         return "main";
     }
 

@@ -21,21 +21,6 @@ public class RegisterController {
         return "register";
     }
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
-
-    @PostMapping("/login")
-    public String login(Model model, String name, String password) {
-        if(usersService.getByName(name) != null && usersService.getByName(name).getUserPassword().toString().equals(password))
-        return "main";
-        else {
-            model.addAttribute("error", "dsa");
-            return "login";
-        }
-    }
-
 
     @PostMapping("/register")
     public String register(Model model, String name, String email, String password, String birthDate, String gender) throws ParseException {
@@ -43,6 +28,6 @@ public class RegisterController {
         if (usersService.getByName(name) == null)
             usersService.addUser(user);
         model.addAttribute("user", user);
-        return "redirect:/test";
+        return "redirect:/login";
     }
 }
