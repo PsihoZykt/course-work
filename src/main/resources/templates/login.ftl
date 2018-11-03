@@ -6,7 +6,7 @@
 Login page
     <@l.login "/login" />
 <#if user??>
-    ${user}
+    ${user.username}
 <#else>
 No user
 </#if>
