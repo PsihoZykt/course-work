@@ -4,6 +4,6 @@
 
 <@c.page>
 Main page
+<@l.logout/>
 ${test}
-${users.money}
 </@c.page>
