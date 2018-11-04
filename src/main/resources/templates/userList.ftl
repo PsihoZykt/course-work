@@ -1,7 +1,6 @@
 <#-- @ftlvariable name="user" type="usualstudent.coursework.database.entity.Users" -->
 
 <#import "parts/common.ftl" as c>
-<#import "parts/navigation.ftl" as n>
 <@c.page>
 <table>
     <thead>

@@ -38,7 +38,6 @@ public class RatingController {
         if( username == null){
             model.addAttribute("error", "Please, input username");
 
-
         }
         if( user == null){
             model.addAttribute("error", "User not found");
