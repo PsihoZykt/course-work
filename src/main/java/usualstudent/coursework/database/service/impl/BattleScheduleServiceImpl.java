@@ -36,6 +36,12 @@ public class BattleScheduleServiceImpl implements BattleScheduleService {
 
     @Override
     public List<BattleSchedule> getBattleScheduleByDate(BattleSchedule battleSchedule) {
+        //TODO:Исправить
+        return battleScheduleRepo.findAll();
+    }
+
+    @Override
+    public List<BattleSchedule> getAll() {
         return battleScheduleRepo.findAll();
     }
 }

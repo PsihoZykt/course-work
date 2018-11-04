@@ -14,4 +14,5 @@ public interface BattleScheduleService {
     BattleSchedule editBattleSchedule(BattleSchedule battleSchedule);
 
     List<BattleSchedule> getBattleScheduleByDate(BattleSchedule battleSchedule);
+    List<BattleSchedule> getAll();
 }

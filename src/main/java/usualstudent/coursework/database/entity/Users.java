@@ -57,7 +57,7 @@ public class Users implements UserDetails{
     /**
      * Количество условного рейтинга пользователя
      */
-    private Integer Rating = 0;
+    private Integer rating = 0;
     /**
      * Количество валюты , которые имеются на аккаунте у пользователя
      */
@@ -78,7 +78,9 @@ public class Users implements UserDetails{
     public Users() {
 
     }
-
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
     public Long getId() {
         return id;
     }
@@ -160,11 +162,11 @@ public class Users implements UserDetails{
     }
 
     public Integer getRating() {
-        return Rating;
+        return rating;
     }
 
     public void setRating(Integer rating) {
-        Rating = rating;
+        this.rating = rating;
     }
 
     public Integer getMoney() {
