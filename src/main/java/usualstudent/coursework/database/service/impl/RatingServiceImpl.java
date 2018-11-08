@@ -32,6 +32,17 @@ public class RatingServiceImpl implements RatingService {
     @Override
     public int getUserPlaceInRating(Users user) {
         List<Rating> ratingList = ratingRepo.findAll();
+        List<Rating> sortedRatingLit =  sortRating(ratingList);
+        for (int i = 0; i < ratingList.size(); i++) {
+            if (ratingList.get(i).getUser().getId() == user.getId())
+                return i;
+        }
+        return 0;
+    }
+
+
+
+    public List<Rating> sortRating(List<Rating> ratingList) {
         if (ratingList != null) {
             Collections.sort(ratingList, new Comparator<Rating>() {
                 @Override
@@ -46,11 +57,6 @@ public class RatingServiceImpl implements RatingService {
                 }
             });
         }
-
-        for (int i = 0; i < ratingList.size(); i++) {
-            if (ratingList.get(i).getUser().getId() == user.getId())
-                return i;
-        }
-        return 0;
+        return ratingList;
     }
 }

@@ -4,6 +4,7 @@
 <#import "parts/login.ftl" as l>
 <@c.page>
 <div class="mainText">
+    <p> ${message?ifExists} </p>
 <p >
     Любишь рисковать? <br>
     Считаешь, что лучше всех разбираешься в покемонах? <br>

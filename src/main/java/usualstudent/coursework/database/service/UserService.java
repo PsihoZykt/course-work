@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import usualstudent.coursework.database.entity.Users;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface UserService extends UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
-    Users addUser(Users user);
+    boolean addUser(Users user);
 
     void delete(long id);
 
@@ -26,4 +27,9 @@ public interface UserService extends UserDetailsService {
 
     void unBanUser(Users user);
 
+    boolean activateUser(String code);
+
+    void saveUser(Users user, String username,  Map<String, String> form);
+
+    void updateProfile(Users user, String password, String email);
 }

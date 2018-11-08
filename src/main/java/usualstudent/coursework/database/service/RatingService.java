@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import usualstudent.coursework.database.entity.Rating;
 import usualstudent.coursework.database.entity.Users;
 
+import java.util.List;
+
 @Service
 public interface RatingService {
 
@@ -13,4 +15,5 @@ public interface RatingService {
 
     int getUserPlaceInRating(Users user);
 
+    List<Rating> sortRating(List<Rating> ratingList);
 }

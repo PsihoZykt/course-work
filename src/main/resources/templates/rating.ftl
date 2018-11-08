@@ -12,7 +12,8 @@
     <@f.search "/rating"/>
 <#if users??>
 <ol>
-    <#list users as user>
+    <#list users as user >
+
         <li>${user.username}  --> ${user.rating} pts</li>
     </#list>
 </ol>

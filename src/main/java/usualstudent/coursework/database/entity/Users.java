@@ -4,6 +4,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
@@ -24,7 +26,18 @@ public class Users implements UserDetails{
      * Имя пользователя
      */
     @Column(unique = true)
+    @NotBlank(message = "Username can't be empty")
+
     private String username;
+    @NotBlank(message = "Password can't be empty")
+    private String password;
+    @Transient
+    private String password2;
+    @Column(unique = true)
+
+    @Email(message = "Email is not correct")
+    @NotBlank(message = "Email can't be empty")
+    private String email;
     /**
      * Дата регистрации
      */
@@ -35,13 +48,14 @@ public class Users implements UserDetails{
     /**
      * Электронная почта
      */
-    @Column(unique = true)
-    private String email;
+
+    private String activationCode;
+
+
+
     private Boolean active = true;
-    /**
-     * Пароль
-     */
-    private String password; // TODO: Что нибудь сделать с шифрованием пароля
+
+
     /**
      * Количество сделанных ставок
      */
@@ -57,7 +71,8 @@ public class Users implements UserDetails{
     /**
      * Количество условного рейтинга пользователя
      */
-    private Integer rating = 0;
+
+    private Integer rating = 1;
     /**
      * Количество валюты , которые имеются на аккаунте у пользователя
      */
@@ -239,5 +254,19 @@ public class Users implements UserDetails{
         return password;
     }
 
+    public String getActivationCode() {
+        return activationCode;
+    }
 
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
 }

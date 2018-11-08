@@ -3,6 +3,5 @@
 
 <@c.page>
 Add new user
-
     <@l.registration "/registration" />
 </@c.page>

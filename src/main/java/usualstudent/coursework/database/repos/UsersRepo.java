@@ -11,6 +11,8 @@ import usualstudent.coursework.database.entity.Users;
 public interface UsersRepo extends JpaRepository<Users, Long> {
 
     Users findByUsername(String username);
+    Users  findByActivationCode(String code);
+    Users findByEmail(String email);
 
 //    @Query(value = "select u from Users u where u.userName = :name")
 //    Users findByName(@Param("name") String name);

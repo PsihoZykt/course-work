@@ -4,7 +4,9 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
+
 <div class="login">
+
     <@l.login "/login" />
 </div>
 </@c.page>
