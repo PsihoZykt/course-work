@@ -7,16 +7,15 @@
 <@c.page>
 <link rel="stylesheet"
       href="/static/css/rating.css"/>
+<script src="/static/js/rating.js"></script>
 <div class="rating">
 <#if error??> ${error} </#if>
     <@f.search "/rating"/>
 <#if users??>
-<ol>
-    <#list users as user >
 
-        <li>${user.username}  --> ${user.rating} pts</li>
-    </#list>
-</ol>
+</div>
+
+
 </#if>
 
 </@c.page>
