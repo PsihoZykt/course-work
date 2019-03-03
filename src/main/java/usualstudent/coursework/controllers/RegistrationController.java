@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import usualstudent.coursework.database.entity.Users;
 import usualstudent.coursework.database.repos.UsersRepo;
 import usualstudent.coursework.database.service.UserService;
@@ -35,6 +34,7 @@ public class RegistrationController {
                           BindingResult bindingResult,
                           Model model,
                           @AuthenticationPrincipal Users authUser) {
+        System.out.println(user + " " + bindingResult + " "+  model + " " + authUser);
         model.addAttribute("userValid", user);
         model.addAttribute("user", authUser);
         if (user.getPassword() != null && !user.getPassword().equals(user.getPassword2())) {
@@ -72,19 +72,21 @@ public class RegistrationController {
         return "login";
     }
 
-    @GetMapping("/login")
-    public String getLogin(
-            @RequestParam(required = false) String error,
-            Model model,
-            @AuthenticationPrincipal Users authUser) {
-        if (authUser != null && authUser.getActivationCode() != null) {
-            model.addAttribute("message", "activate your account");
-        }
-        if (error != null)
-            model.addAttribute("message", "User not found");
-        model.addAttribute("user", authUser);
-        return "login";
-    }
+//
+//    @GetMapping("login")
+//    public String getLogin(
+//            @RequestParam(required = false) String error,
+//            Model model,
+//            @AuthenticationPrincipal Users authUser) {
+//        if (authUser != null && authUser.getActivationCode() != null) {
+//            model.addAttribute("message", "activate your account");
+//        }
+//        if (error != null)
+//            model.addAttribute("message", "User not found");
+//        model.addAttribute("user", authUser);
+//        return "loginPage";
+//    }
+
 
 
 }

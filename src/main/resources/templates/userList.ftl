@@ -13,6 +13,8 @@
         <tr>
             <td>
               ${user.username}
+              ${user.getBanned()?string("Забанен", "не забанен")}
+
             </td>
             <td>
                 <#list user.roles as role> ${role}<#sep>,  </#list>

@@ -4,7 +4,9 @@
 <@c.page>
 User Editor
 <form action="/user" method="post">
-    <input type="text" name="username" value="${user.username}">
+    <input type="text" name="favouritePokemon" value="${user.favouritePokemon} ">
+    <input type="text" name="password" value=" Новый пароль ">
+
     <#list roles as role>
         <div>
        <label>   <input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}> ${role} </label>

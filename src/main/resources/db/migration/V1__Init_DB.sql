@@ -15,6 +15,16 @@ CREATE TABLE bet (
   user_id      INT8,
   PRIMARY KEY (id)
 );
+CREATE TABLE usr (
+  id VARCHAR(255),
+  name VARCHAR(255),
+  userpic VARCHAR(255),
+  email VARCHAR(255),
+  gender VARCHAR(255),
+  locale VARCHAR(255),
+  last_visit DATE,
+  PRIMARY KEY (id)
+);
 CREATE TABLE bet_history (
   id         BIGSERIAL NOT NULL,
   is_success BOOLEAN,

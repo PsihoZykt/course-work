@@ -229,7 +229,7 @@ public class Users implements UserDetails{
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return !getBanned();
     }
 
     @Override

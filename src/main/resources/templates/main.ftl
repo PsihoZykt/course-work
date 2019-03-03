@@ -1,9 +1,10 @@
 <#-- @ftlvariable name="user" type="usualstudent.coursework.database.entity.Users" -->
 
 <#import "parts/common.ftl" as c>
-<#import "parts/login.ftl" as l>
+<#import "parts/mylogin.ftl" as l>
 <@c.page>
 <div class="mainText">
+    <H1>Auth: ${Auth?ifExists} </H1>
     <p> ${message?ifExists} </p>
 <p >
     Любишь рисковать? <br>

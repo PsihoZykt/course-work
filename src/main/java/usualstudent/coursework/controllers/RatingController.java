@@ -67,7 +67,7 @@ public class RatingController {
         }
         else{
             List<Users> users = new ArrayList<>();
-            users.add(authUser);
+            users.add(userFromRating);
             model.addAttribute("users", users );
         }
 

@@ -25,8 +25,9 @@ public class ScheduleController {
     @PreAuthorize("#authUser.getActivationCode() == null")
     public String schedule(Model model , @AuthenticationPrincipal Users authUser){
         List<BattleSchedule> battleScheduleList = battleScheduleService.getAll();
-        model.addAttribute("list", battleScheduleList);
+        model.addAttribute("battles", battleScheduleList);
         model.addAttribute("user", authUser);
+
         return "schedule";
 
     }

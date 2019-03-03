@@ -1,11 +1,14 @@
 package usualstudent.coursework.database.service.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import usualstudent.coursework.CourseWorkApplication;
 import usualstudent.coursework.database.entity.Role;
 import usualstudent.coursework.database.entity.Users;
 import usualstudent.coursework.database.repos.UsersRepo;
@@ -25,12 +28,19 @@ public class UsersServiceImpl implements UserService {
     private MailSenderService mailSenderService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private static final Logger logger = LogManager.getLogger(CourseWorkApplication.class);
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if (userRepo.findByUsername(username) == null)
             throw new UsernameNotFoundException("user not found");
         return userRepo.findByUsername(username);
+    }
+
+    public void changePassword(Users user, String newPassword){
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepo.save(user);
     }
 
     public boolean addUser(Users user) {
@@ -106,8 +116,9 @@ public class UsersServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(Users user, String username, Map<String, String> form) {
-        user.setUsername(username);
+    public void saveUser(Users user, Map<String, String> form) {
+        logger.warn("in service" + user.getFavouritePokemon());
+
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
                 .collect(Collectors.toSet());

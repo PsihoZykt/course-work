@@ -29,7 +29,8 @@ public interface UserService extends UserDetailsService {
 
     boolean activateUser(String code);
 
-    void saveUser(Users user, String username,  Map<String, String> form);
+    void saveUser(Users user, Map<String, String> form);
 
     void updateProfile(Users user, String password, String email);
+  //  void changePassword(Users user, String newPassword);
 }
